@@ -16,7 +16,6 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 import dj_database_url
-import os
 cloudinary.config( 
   cloud_name = config('cloud_name'), 
   api_key = config('api_key'), 
@@ -92,17 +91,19 @@ WSGI_APPLICATION = 'bedaia.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-DATABASES = {}
 
-if 'DATABASE_URL' in os.environ:
-    # Use the Heroku-provided DATABASE_URL in production
-    DATABASES['default'] = dj_database_url.config(default=os.environ['DATABASE_URL'])
-else:
-    # Local development with SQLite
-    DATABASES['default'] = {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+DATABASES={}
+
+if DEBUG:
+    DATABASES["default"]={
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+
     }
+else:
+    DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+    DATABASES['default'] = dj_database_url.config(default=config('DATABASE_URL'))
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # Adjust this to match your React app's URL
 ]
