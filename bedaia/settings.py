@@ -12,9 +12,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 from decouple import config
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
 import os
 import dj_database_url
 import environ
@@ -28,11 +25,6 @@ environ.Env.read_env(BASE_DIR / '.env')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-cloudinary.config( 
-  cloud_name = config('CLOUD_NAME'), 
-  api_key = config('API_KEY'), 
-  api_secret = config("API_SECRET") 
-)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 
