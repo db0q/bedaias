@@ -20,9 +20,9 @@ import dj_database_url
 
 
 cloudinary.config(
-    cloud_name="your_cloud_name",
-    api_key="your_api_key",
-    api_secret="your_api_secret",
+    cloud_name="CLOUD_NAME",
+    api_key="API_KEY",
+    api_secret="API_SECRET",
 )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
