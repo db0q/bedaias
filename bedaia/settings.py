@@ -94,7 +94,7 @@ WSGI_APPLICATION = 'bedaia.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('postgres://mdeuoiravqykim:7662b8de83c6a9b4928c903552d21a9670c11eb3f12c58e4daef14b0d783fe4a@ec2-34-242-199-141.eu-west-1.compute.amazonaws.com:5432/d723krbbehc4mu'))
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 }
 # DATABASES={}
 
