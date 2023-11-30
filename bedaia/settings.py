@@ -18,13 +18,11 @@ import cloudinary.api
 import os
 import dj_database_url
 
-
-cloudinary.config(
-    cloud_name="CLOUD_NAME",
-    api_key="API_KEY",
-    api_secret="API_SECRET",
+cloudinary.config( 
+  cloud_name = config('CLOUD_NAME'), 
+  api_key = config('API_KEY'), 
+  api_secret = config("API_SECRET") 
 )
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
