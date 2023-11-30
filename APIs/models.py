@@ -1,5 +1,4 @@
 from django.db import models
-from cloudinary.models import CloudinaryField
 from django.template.defaultfilters import slugify
 
 
@@ -12,10 +11,10 @@ class Bedaia(models.Model):
     slug = models.SlugField(max_length=255, null=True,blank=True)
     created_at = models.DateTimeField(auto_now=True)
     update_at =models.DateTimeField(auto_now=True)
-    firstpic = CloudinaryField('Image',overwrite=True)
-    secondpic = CloudinaryField('Image',overwrite=True)
-    thirdpic = CloudinaryField('Image',overwrite=True)
-    forthpic = CloudinaryField('Image',overwrite=True)
+    firstpic =  models.ImageField(upload_to='images/')
+    secondpic =  models.ImageField(upload_to='images/')
+    thirdpic =  models.ImageField(upload_to='images/')
+    forthpic =  models.ImageField(upload_to='images/')
     
     class Meta:
         ordering=['-created_at']
@@ -39,10 +38,10 @@ class Nukhba(models.Model):
     slug = models.SlugField(max_length=255, null=True,blank=True)
     created_at = models.DateTimeField(auto_now=True)
     update_at =models.DateTimeField(auto_now=True)
-    firstpic = CloudinaryField('Image',overwrite=True)
-    secondpic = CloudinaryField('Image',overwrite=True)
-    thirdpic = CloudinaryField('Image',overwrite=True)
-    forthpic = CloudinaryField('Image',overwrite=True)
+    firstpic =  models.ImageField(upload_to='images/')
+    secondpic =  models.ImageField(upload_to='images/')
+    thirdpic =  models.ImageField(upload_to='images/')
+    forthpic =  models.ImageField(upload_to='images/')
     
     class Meta:
         ordering=['-created_at']

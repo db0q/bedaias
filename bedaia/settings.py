@@ -17,6 +17,10 @@ import cloudinary.uploader
 import cloudinary.api
 import os
 import dj_database_url
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 cloudinary.config( 
   cloud_name = config('CLOUD_NAME'), 
