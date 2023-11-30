@@ -91,17 +91,13 @@ WSGI_APPLICATION = 'bedaia.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-DATABASES = {}
 
-if DEBUG:
-    DATABASES["default"] = {
+DATABASES = {
+    'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-else:
-    DATABASES['default'] = dj_database_url.config(
-        conn_max_age=600, ssl_require=True, default=config('DATABASE_URL')
-    )
+}
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # Adjust this to match your React app's URL
 ]
