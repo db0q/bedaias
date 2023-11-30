@@ -16,6 +16,8 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 import dj_database_url
+import os
+
 cloudinary.config( 
   cloud_name = config('cloud_name'), 
   api_key = config('api_key'), 
@@ -46,7 +48,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #third_party
      'rest_framework',
     'drf_yasg',
     'APIs.apps.ApisConfig',
@@ -92,18 +93,20 @@ WSGI_APPLICATION = 'bedaia.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+DATABASES = {
+    'default': dj_database_url.config(default=os.environ.get('postgres://mdeuoiravqykim:7662b8de83c6a9b4928c903552d21a9670c11eb3f12c58e4daef14b0d783fe4a@ec2-34-242-199-141.eu-west-1.compute.amazonaws.com:5432/d723krbbehc4mu'))
+}
+# DATABASES={}
 
-DATABASES={}
+# if DEBUG:
+#     DATABASES["default"]={
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': BASE_DIR / 'db.sqlite3',
 
-if DEBUG:
-    DATABASES["default"]={
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-
-    }
-else:
-    DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
-    DATABASES['default'] = dj_database_url.config(default=config('DATABASE_URL'))
+#     }
+# else:
+#     DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+#     DATABASES['default'] = dj_database_url.config(default=config('DATABASE_URL'))
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # Adjust this to match your React app's URL
