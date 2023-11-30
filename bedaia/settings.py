@@ -71,8 +71,21 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'bedaia.urls'
 REST_FRAMEWORK = {"DEFAULT_PERMISSION_CLASSES": [
     "rest_framework.permissions.AllowAny"]}
-CORS_ALLOWED_ORIGIN = '*'
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    # Add other allowed origins as needed
+]
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+    # Add other allowed methods as needed
+]
 CORS_ALLOW_HEADERS = [
     'access-control-allow-origin',
     'content-type',
