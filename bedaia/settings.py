@@ -72,6 +72,11 @@ ROOT_URLCONF = 'bedaia.urls'
 REST_FRAMEWORK = {"DEFAULT_PERMISSION_CLASSES": [
     "rest_framework.permissions.AllowAny"]}
 CORS_ALLOWED_ORIGIN = '*'
+
+CORS_ALLOW_HEADERS = [
+    'access-control-allow-origin',
+    'content-type',
+]
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
