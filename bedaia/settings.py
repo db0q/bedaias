@@ -15,7 +15,9 @@ from decouple import config
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+import os
 import dj_database_url
+
 cloudinary.config( 
   cloud_name = config('cloud_name'), 
   api_key = config('api_key'), 
@@ -92,21 +94,9 @@ WSGI_APPLICATION = 'bedaia.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES={}
-
-if DEBUG:
-    DATABASES["default"]={
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-
-    }
-else:
-    DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
-    DATABASES['default'] = dj_database_url.config(default=config('DATABASE_URL'))
-
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # Adjust this to match your React app's URL
-]
+DATABASES = {
+    "default": dj_database_url.config(default=config("DATABASE_URL"), conn_max_age=600, ssl_require=True)
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
