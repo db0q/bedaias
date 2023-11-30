@@ -4,11 +4,14 @@ cloudinary==1.36.0
 dj-database-url==2.1.0
 Django==4.2.7
 django-cors-headers @ git+https://github.com/adamchainz/django-cors-headers.git@a4ab667a6e158e435287ad69914e9035265e841a
+django-storages==1.14.2
 djangorestframework==3.14.0
 drf-yasg==1.21.7
 gunicorn==21.2.0
 inflection==0.5.1
+mysqlclient==2.2.0
 packaging==23.2
+Pillow==10.1.0
 psycopg2-binary==2.9.9
 python-decouple==3.8
 pytz==2023.3.post1
