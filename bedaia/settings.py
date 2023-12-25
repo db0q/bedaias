@@ -73,7 +73,10 @@ REST_FRAMEWORK = {"DEFAULT_PERMISSION_CLASSES": [
     "rest_framework.permissions.AllowAny"]}
 
 CORS_ALLOWED_ORIGINS = [
-    '*'
+     "http://localhost:3000",
+    'bedaia.netlify.app',
+    'www.bedaia-iq.org',
+    'bedaias-frontend.vercel.app'
     # Add other allowed origins as needed
 ]
 CORS_ALLOW_CREDENTIALS = True
