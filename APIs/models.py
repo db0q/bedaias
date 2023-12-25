@@ -11,11 +11,11 @@ class Bedaia(models.Model):
     slug = models.SlugField(max_length=255, null=True,blank=True)
     created_at = models.DateTimeField(auto_now=True)
     update_at =models.DateTimeField(auto_now=True)
-    firstpic =  models.ImageField(upload_to='images/')
-    secondpic =  models.ImageField(upload_to='images/')
-    thirdpic =  models.ImageField(upload_to='images/')
-    forthpic =  models.ImageField(upload_to='images/')
-    video_file = models.FileField(upload_to='videos/')
+    firstpic =  models.ImageField(upload_to='images/',blank=True)
+    secondpic =  models.ImageField(upload_to='images/',blank=True)
+    thirdpic =  models.ImageField(upload_to='images/',blank=True)
+    forthpic =  models.ImageField(upload_to='images/',blank=True)
+    video_file = models.FileField(upload_to='videos/',blank=True)
     
     class Meta:
         ordering=['-created_at']
@@ -39,11 +39,12 @@ class Nukhba(models.Model):
     slug = models.SlugField(max_length=255, null=True,blank=True)
     created_at = models.DateTimeField(auto_now=True)
     update_at =models.DateTimeField(auto_now=True)
-    firstpic =  models.ImageField(upload_to='images/')
-    secondpic =  models.ImageField(upload_to='images/')
-    thirdpic =  models.ImageField(upload_to='images/')
-    forthpic =  models.ImageField(upload_to='images/')
-    video_file = models.FileField(upload_to='videos/')
+    firstpic =  models.ImageField(upload_to='images/',blank=True)
+    secondpic =  models.ImageField(upload_to='images/',blank=True)
+    thirdpic =  models.ImageField(upload_to='images/',blank=True)
+    forthpic =  models.ImageField(upload_to='images/',blank=True)
+    video_file = models.FileField(upload_to='videos/',blank=True)
+    
     
     class Meta:
         ordering=['-created_at']
