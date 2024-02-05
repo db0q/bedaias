@@ -15,8 +15,8 @@ class Bedaia(models.Model):
     secondpic =  models.FileField(upload_to='videos/',blank=True)
     thirdpic =  models.FileField(upload_to='videos/',blank=True)
     forthpic =  models.FileField(upload_to='videos/',blank=True)
-    video_file = models.FileField(upload_to='videos/')
-    upload_file = models.FileField(blank=True)
+    video_file = models.FileField(upload_to='videos/',blank=True)
+    upload_file = models.FileField(upload_to='upload_folder/',blank=True)
     
     class Meta:
         ordering=['-created_at']
@@ -45,7 +45,7 @@ class Nukhba(models.Model):
     thirdpic =  models.FileField(upload_to='videos/',blank=True)
     forthpic =  models.FileField(upload_to='videos/',blank=True)
     video_file = models.FileField(upload_to='videos/',blank=True)
-    upload_file = models.FileField(blank=True)
+    upload_file = models.FileField(upload_to='upload_folder/',blank=True)
     class Meta:
         ordering=['-created_at']
     
