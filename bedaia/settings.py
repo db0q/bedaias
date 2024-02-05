@@ -16,9 +16,10 @@ import os
 import dj_database_url
 import environ
 
-env = environ.Env(
-    DEBUG=(bool, False)
-)
+# env = environ.Env(
+#     DEBUG=(bool, False)
+# )
+DEBUG = True
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 environ.Env.read_env(BASE_DIR / '.env')
@@ -32,10 +33,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
-
+SECRET_KEY = "2218"
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG',cast=bool)
+# DEBUG = config('DEBUG',cast=bool)
 
 ALLOWED_HOSTS = ['*']
 
@@ -74,7 +74,7 @@ REST_FRAMEWORK = {"DEFAULT_PERMISSION_CLASSES": [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    'https://6568bc706164c405da44251c--courageous-lokum-a90516.netlify.app/'
+    
     # Add other allowed origins as needed
 ]
 CORS_ALLOW_CREDENTIALS = True
@@ -112,12 +112,18 @@ WSGI_APPLICATION = 'bedaia.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=config('DATABASE_URL'),
+#         conn_max_age=600,  # Adjust as needed
+#         ssl_require=True,
+#     )
+# }
 DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL'),
-        conn_max_age=600,  # Adjust as needed
-        ssl_require=True,
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / "db.sqlite3",
+    }
 }
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -166,13 +172,14 @@ DEFAULT_FILE_STORAGE = "storages.backends.s3.S3Storage"
 
 
 
-AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
-AWS_S3_SIGNATURE_NAME = 's3v4',
-AWS_S3_REGION_NAME = env('AWS_S3_REGION_NAME')
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL =  None
-AWS_S3_VERITY = True
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_S3_CUSTOM_DOMAIN = 'd2h89xp14a2787.cloudfront.net'
+# AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+# AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+# AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
+# AWS_S3_SIGNATURE_NAME = 's3v4',
+# AWS_S3_REGION_NAME = env('AWS_S3_REGION_NAME')
+# AWS_S3_FILE_OVERWRITE = False
+# AWS_DEFAULT_ACL =  None
+# AWS_S3_VERITY = True
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# AWS_S3_CUSTOM_DOMAIN = 'd2h89xp14a2787.cloudfront.net'
+
