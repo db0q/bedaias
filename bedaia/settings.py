@@ -74,7 +74,8 @@ REST_FRAMEWORK = {"DEFAULT_PERMISSION_CLASSES": [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    'https://6568bc706164c405da44251c--courageous-lokum-a90516.netlify.app/'
+    'https://6568bc706164c405da44251c--courageous-lokum-a90516.netlify.app/',
+    'https://bedaia-iq.org/'
     # Add other allowed origins as needed
 ]
 CORS_ALLOW_CREDENTIALS = True
